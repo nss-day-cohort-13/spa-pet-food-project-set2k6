@@ -3,6 +3,7 @@ var DogFood = (function (originalDogFood) {
 
 originalDogFood.setDogFood = function (privateDogFood) {
 	var dogList = document.getElementById("dog_food_list");
+	var catList = document.getElementById("cat_food_list");
         var output= "";
         console.log("anything", privateDogFood);
 
@@ -17,14 +18,14 @@ originalDogFood.setDogFood = function (privateDogFood) {
          console.log("privateDogFood", privateDogFood);
          var currentDogFood = privateDogFood[i];
          console.log(currentDogFood.length);
-         		output += `<div class='Output'>`; // opening div tag
+         		output += `<div class='Output'>`;
          output += `<h1>${currentDogFood.name}</h1>`;
 
 
-						if (KindOfFood === privateDogFood.cat_brands) {// Adding if statement to check if data file is cats json then looping through breeds.
+						if (KindOfFood === privateDogFood.cat_brands) {
 						output += `<h3>breeds:</h3><h4>`
-							for (var c = 0; c < currentDogFood.breeds.length; c++) {
-							output += ` ${currentDogFood.breeds[c] + ', '}`; // cat breed names
+							for (var c = 0; c < currentDogFood.breeds; c++) {
+							output += `${currentDogFood.breeds[c] + ", "}`;
 			}
 
 							output += `</h4>`;
@@ -49,6 +50,8 @@ originalDogFood.setDogFood = function (privateDogFood) {
 
 
         dogList.innerHTML = output;
+        catList.innerHTML = output;
+
       }
 
         return originalDogFood;
