@@ -4,6 +4,7 @@ var DogFood = (function (originalDogFood) {
 
     originalDogFood.loadDogFood = function (){
       var loadDog = new XMLHttpRequest();
+      var loadCat = new XMLHttpRequest();
 
       loadDog.addEventListener("load", function () {
         privateDogFood = JSON.parse(this.responseText).dog_brands;
@@ -15,6 +16,8 @@ var DogFood = (function (originalDogFood) {
 
       loadDog.open("GET", "dog.json");
       loadDog.send();
+      loadCat.open("GET", "cat.json");
+      loadCat.send();
     }
 
     return originalDogFood;
